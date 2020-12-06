@@ -1,5 +1,6 @@
 import './App.css';
-import React from "react";
+// import React from "react";
+import React, { useState, useMemo } from "react";
 import LandingToolbar from "../src/Components/Toolbar/LandingToolbar";
 import Landing from "../src/Components/Landing/Landing";
 import Grid from "@material-ui/core/Grid";
@@ -15,7 +16,12 @@ import FOtp from './Components/Login/FOtp';
 import ChangePassword from './Components/Login/ChangePassword';
 import TechPage from "./Components/Landing/TechPage";
 import Comments from "./Components/Landing/Comments";
+import Techwall from './Components/TechnicianProfile/Techwall'
 
+import { UserContext } from './UserContext';
+import Admin from './Components/Admin/admin'
+import Allusers from './Components/Admin/Allusers.jsx';
+import Alltech from './Components/Admin/Alltech';
 
 const useStyles = makeStyles((theme) => ({
     root : {
@@ -25,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+
+    const [user, setUser] = useState(1);
+    const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
     const classes = useStyles();
     return (
         <div className="App">
@@ -32,6 +41,7 @@ function App() {
                 <BrowserRouter>
                 <LandingToolbar />
                     <Switch>
+                        <UserContext.Provider value={providerValue}>
                         <Route exact path={"/"}>
                             <Landing />
                         </Route>
@@ -65,6 +75,20 @@ function App() {
                         <Route path={"/fotp"}>
                             <FOtp/>
                         </Route>
+                            {/* Edited part */}
+                            <Route path={"/techwall"}>
+                                <Techwall />
+                            </Route>
+                            <Route path={"/admin"}>
+                                <Admin />
+                            </Route>
+                            <Route path={"/allusers"}>
+                                <Allusers />
+                            </Route>
+                            <Route path={"/alltech"}>
+                                <Alltech />
+                            </Route>
+                        </UserContext.Provider>
                     </Switch>
                 </BrowserRouter>
             </Grid>

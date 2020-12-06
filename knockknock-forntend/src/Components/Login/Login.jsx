@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import { Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
@@ -6,7 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom"
 import { customerLogin } from "../../Utils/Api";
-
+import { useHistory } from "react-router-dom"
+import { UserContext } from "../../UserContext";
 const useStyles = makeStyles((theme) => ({
     gridItem: {
         display: "flex",
@@ -49,19 +50,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-    
-
-
-
-
-
-
 const Login = (props) => {
+    //change made varlock
+    let history = useHistory();
+    const { user, setUser } = useContext(UserContext);
     const classes = useStyles();
     const [fields, setFields] = useState({
         userId: "",
         password: "",
     });
+    const [temp, setTemp] = useState();
 
     const onChange = (e) => {
         setFields({...fields, [e.target.name]: e.target.value });
@@ -72,7 +70,12 @@ const Login = (props) => {
         try {
             const loginInfo = await customerLogin(fields);
             if (loginInfo.status === 200) {
-               window.location = "/otp";
+              // window.location = "/otp";
+                // setTemp(fields['userId'])
+                // searchTechName(temp)
+                //change this to route to customer home page
+                history.push("/home")
+
             } else {
                 console.log(loginInfo);
                 alert(loginInfo.msg);
@@ -82,10 +85,11 @@ const Login = (props) => {
             alert(errors.response.data.errors[0].msg);
         }
     };
-
-
- 
-
+    // const searchTechName = async (search) => {
+    //     const searchValue = { searchValue: search };
+    //     const name = await getTechIdApi(searchValue);
+    //     setUser(name)
+    // };
 
     return (
         <div className={classes.divContainer}>

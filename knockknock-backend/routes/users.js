@@ -15,5 +15,6 @@ router.post("/otp", controllers.userOtp);
 router.post("/fotp", controllers.userOtp);
 router.post("/forgot-password", controllers.forgotPassword);
 
+router.get("/list-user", controllers.allUserList);
 
 module.exports = router;
