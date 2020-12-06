@@ -93,7 +93,7 @@ const TechnicianLogin = (props) => {
         <div className={classes.divContainer}>
             <Grid container className={classes.container}>
                 <Typography className={classes.customerLoginText}>
-                    Technician Login{fields['userId']}
+                    Technician Login
                 </Typography>
                 <form onSubmit={onSubmit}>
                     <Grid item xs={12} className={classes.gridItemText}>
