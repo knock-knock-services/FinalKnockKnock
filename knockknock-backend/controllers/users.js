@@ -181,6 +181,18 @@ exports.userOtp = (req, res) => {
                }
                 }
            
-        } 
+        }
+
+exports.allUserList = (req, res) => {
+
+    console.log("inside router user all list")
+    let SQLQuery = `SELECT * FROM knockknock.customer;`;
+    mysqlConnectionObject.query(SQLQuery, (err, result) => {
+        if (err) { console.log(err); }
+        else {
+            res.status(200).json(result);
+        }
+    });
+};
     
     
