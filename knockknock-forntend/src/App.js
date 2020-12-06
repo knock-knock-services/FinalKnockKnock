@@ -44,6 +44,13 @@ function App() {
                         <Route path={"/change-password"}>
                             <ChangePassword />
                         </Route>
+                        <Route path={"/change-password2"}>
+                            <ChangePassword />
+                        </Route>
+                        <Route path={"/change-password2t"}>
+                            <ChangePassword />
+                        </Route>
+                        
                         <Route path={"/tech-page/:id"} component={TechPage}>
                            
                         </Route>
