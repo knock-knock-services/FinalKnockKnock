@@ -58,10 +58,11 @@ function Techwall() {
     const classes = useStyles();
     const [technicianCategories, setTechnicianCategories] = useState();
     const [bookings, setBookings] = useState();
+    const { user, setUser } = useContext(UserContext);
     
 //changes here===================================================================================
-    const { user, setUser } = useContext(UserContext);
-
+    //const { user, setUser } = useContext(UserContext);
+   // const [user, setUser] = useState(UserContext)
 
     useEffect(() => {
 
@@ -87,7 +88,7 @@ function Techwall() {
             <Grid container>
                 <Grid item xs={12} >
                     <Typography variant={"h5"}>
-                        Booking Details
+                        Booking Details{user}
                     </Typography>
                 </Grid>
 

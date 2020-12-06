@@ -84,6 +84,10 @@ const getAllTechListApi = async () => {
     return response.data;
 };
 
+const getTechIdApi = async (search) => {
+    const response = await axios.post("/services/techidbyname", search);
+    return response.data;
+};
 
 export {
     customerLogin,
@@ -101,4 +105,6 @@ export {
 getComments,
 getAllUserListApi,
 getAllTechListApi,
+    getTechIdApi,
+
 };

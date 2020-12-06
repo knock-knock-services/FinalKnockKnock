@@ -72,7 +72,8 @@ const Login = (props) => {
         try {
             const loginInfo = await customerLogin(fields);
             if (loginInfo.status === 200) {
-               window.location = "/otp";
+              // window.location = "/otp";
+              
             } else {
                 console.log(loginInfo);
                 alert(loginInfo.msg);

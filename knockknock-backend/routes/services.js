@@ -15,5 +15,7 @@ router.post("/list-service-category-regex", controller.getServiceCategoryRegex);
 router.post("/list-booking-details", controller.getBookingDetails);
 router.get("/list-tech", controller.allTechList);
 
+router.post("/techidbyname", controller.techNameById);
+
 module.exports = router;
 
