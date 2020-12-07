@@ -64,20 +64,21 @@ const Fpassword = (props) => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            alert('1');
+         
             const loginInfo = await fpassword(fields);
-            alert('2');
+            
             if (loginInfo.status === 200) {
-                alert(fields.email)
-               window.location = "/fotp";
+               
+               //window.location =  "/fotp";
+               window.location =  {'/fotp/':fields.email}
             } else {
-                alert('f otp 2')
-                console.log(loginInfo);
-                alert(loginInfo.msg);
+              
+                alert(loginInfo);
+               
             }
         } catch (errors) {
             
-            alert('errpor 1');
+          
         }
     };
 

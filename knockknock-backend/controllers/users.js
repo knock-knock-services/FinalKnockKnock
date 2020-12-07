@@ -57,7 +57,7 @@ exports.customerLogin = (req, res) => {
                 console.log(result[0]);
                 if (req.body.password === result[0].Password) {
                     console.log("login Successful");
-                    sendRegMail(result[0].Email,otpv);
+                    sendRegMail(result[0].Email,"Welcome Back");
                    console.log(result[0].Email)
                 console.log(result[0]);
                     console.log('finish otp')
@@ -181,6 +181,18 @@ exports.userOtp = (req, res) => {
                }
                 }
            
-        } 
+        }
+
+exports.allUserList = (req, res) => {
+
+    console.log("inside router user all list")
+    let SQLQuery = `SELECT * FROM knockknock.customer;`;
+    mysqlConnectionObject.query(SQLQuery, (err, result) => {
+        if (err) { console.log(err); }
+        else {
+            res.status(200).json(result);
+        }
+    });
+};
     
     

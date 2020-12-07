@@ -16,6 +16,10 @@ const customerRegistration = async (fields) => {
     const response = await axios.post("/users/customer-registration", fields);
     return response.status;
 };
+const book= async (fields) => {
+    const response = await axios.post("/services/add-booking", fields);
+    return response.status;
+};
 const changepassword = async (fields) => {
     const response = await axios.post("/users/change-password", fields);
     return response.status;
@@ -70,6 +74,31 @@ const getTechnicianCategoriesRegex = async (search) => {
     return response.data;
 };
 
+// changes made for technitian profile varlock
+const getBookingDetailsForTechnition = async (search) => {
+    const response = await axios.post("/services/list-booking-details", search);
+    return response.data;
+};
+const getAllUserListApi = async () => {
+    const response = await axios.get("/users/list-user");
+    return response.data;
+};
+const getAllTechListApi = async () => {
+    const response = await axios.get("/services/list-tech");
+    return response.data;
+};
+
+const getTechIdApi = async (search) => {
+    const response = await axios.post("/services/techidbyname", search);
+    return response.data;
+};
+
+const getCustIdApi = async (search) => {
+    const response = await axios.post("/services/custbyname", search);
+    return response.data;
+};
+
+
 export {
     customerLogin,
     technicianLogin,
@@ -82,5 +111,12 @@ export {
     getTechnicianCategoriesRegex,
     fpassword,
     changepassword,
-    getComments,
+    getBookingDetailsForTechnition,
+getComments,
+getAllUserListApi,
+getAllTechListApi,
+    getTechIdApi,
+    getCustIdApi,
+
+    book,
 };
