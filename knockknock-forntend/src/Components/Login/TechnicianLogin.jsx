@@ -72,8 +72,7 @@ const TechnicianLogin = (props) => {
             const loginInfo = await technicianLogin(fields);
             if (loginInfo.status === 200) {
                 // window.location = "/techwall";
-                setTemp(fields['userId'])
-                searchTechName(temp)
+                setUser(loginInfo.data[0].TechnicianId);
                 history.push("/techwall")
             } else {
                 console.log(loginInfo);

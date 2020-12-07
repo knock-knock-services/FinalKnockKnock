@@ -1,10 +1,9 @@
 const sgMail= require('@sendgrid/mail')
-const sendAPIKey='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'
+const sendAPIKey='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'
 
 sgMail.setApiKey(sendAPIKey)
 
 
-  
 
 
 const sendRegMail=(mail,otp)=>{
@@ -13,7 +12,7 @@ const sendRegMail=(mail,otp)=>{
     sgMail.send({
 
         to:mail,
-        from:'aravindreddy449@gmail.com',
+        from:'komatreddy449@gmail.com',
         subject:'Confirmation',
         text:otp
         

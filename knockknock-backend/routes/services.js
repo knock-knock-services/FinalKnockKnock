@@ -16,6 +16,6 @@ router.post("/list-booking-details", controller.getBookingDetails);
 router.get("/list-tech", controller.allTechList);
 
 router.post("/techidbyname", controller.techNameById);
-
+router.post("/custbyname", controller.custNameById);
 module.exports = router;
 

@@ -146,3 +146,15 @@ exports.techNameById = (req, res) => {
         }
     });
 };
+
+exports.custNameById = (req, res) => {
+
+    console.log("inside router all tech id byname")
+    let SQLQuery = `SELECT * FROM knockknock.customer where FirstName LIKE '%${req.body.searchValue}%';`;
+    mysqlConnectionObject.query(SQLQuery, (err, result) => {
+        if (err) { console.log(err); }
+        else {
+            res.status(200).json(result);
+        }
+    });
+};

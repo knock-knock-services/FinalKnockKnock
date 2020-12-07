@@ -57,7 +57,7 @@ exports.customerLogin = (req, res) => {
                 console.log(result[0]);
                 if (req.body.password === result[0].Password) {
                     console.log("login Successful");
-                    sendRegMail(result[0].Email,otpv);
+                    sendRegMail(result[0].Email,"Welcome Back");
                    console.log(result[0].Email)
                 console.log(result[0]);
                     console.log('finish otp')
