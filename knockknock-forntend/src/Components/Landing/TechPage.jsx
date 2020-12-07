@@ -60,7 +60,7 @@ const SearchCategory = ({ match },props) => {
             </Link>
             </td>
             <td>
-            <Link  to={'/tech-page/'+technician.TechnicianId} className={classes.title}>
+            <Link  to={'/book/'+technician.TechnicianId} className={classes.title}>
                            
                            Click Here
            </Link>

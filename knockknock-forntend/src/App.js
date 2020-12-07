@@ -15,6 +15,7 @@ import ForgotPassword from './Components/Login/ForgotPassword';
 import FOtp from './Components/Login/FOtp';
 import ChangePassword from './Components/Login/ChangePassword';
 import TechPage from "./Components/Landing/TechPage";
+import Book from "./Components/Landing/Book";
 import Comments from "./Components/Landing/Comments";
 import Techwall from './Components/TechnicianProfile/Techwall'
 
@@ -57,6 +58,9 @@ function App() {
                         <Route path={"/tech-page/:id"} component={TechPage}>
                            
                         </Route>
+                        <Route path={"/book/:id"} component={Book}>
+                           
+                           </Route>
                         <Route path={"/technician-registration"}>
                             <TechnicianRegistration />
                         </Route>
@@ -72,7 +76,7 @@ function App() {
                         <Route path={"/otp"}>
                             <Otp />
                         </Route>
-                        <Route path={"/fotp"}>
+                        <Route path={"/fotp/:id"}>
                             <FOtp/>
                         </Route>
                             {/* Edited part */}
