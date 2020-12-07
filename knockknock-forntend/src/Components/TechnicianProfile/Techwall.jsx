@@ -69,7 +69,8 @@ function Techwall() {
         getCategoriesTechnician();
         
         // setUser('varun');
-        searchBooking(2);
+        searchBooking(user);
+       
     }, []);
 
     const getCategoriesTechnician = async () => {

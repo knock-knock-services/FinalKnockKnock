@@ -16,6 +16,10 @@ const customerRegistration = async (fields) => {
     const response = await axios.post("/users/customer-registration", fields);
     return response.status;
 };
+const book= async (fields) => {
+    const response = await axios.post("/services/add-booking", fields);
+    return response.status;
+};
 const changepassword = async (fields) => {
     const response = await axios.post("/users/change-password", fields);
     return response.status;
@@ -89,6 +93,12 @@ const getTechIdApi = async (search) => {
     return response.data;
 };
 
+const getCustIdApi = async (search) => {
+    const response = await axios.post("/services/custbyname", search);
+    return response.data;
+};
+
+
 export {
     customerLogin,
     technicianLogin,
@@ -106,5 +116,7 @@ getComments,
 getAllUserListApi,
 getAllTechListApi,
     getTechIdApi,
+    getCustIdApi,
 
+    book,
 };
